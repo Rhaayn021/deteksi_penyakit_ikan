@@ -4,9 +4,6 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 
-# Load the trained model
-model = load_model('model_cnn.h5')
-
 # Function to load and preprocess image
 def load_and_preprocess_image(img_path):
     img = image.load_img(img_path, target_size=(150, 150))

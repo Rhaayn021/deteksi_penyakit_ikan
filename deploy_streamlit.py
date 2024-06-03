@@ -45,6 +45,11 @@ if uploaded_file is not None:
         st.write("Hasil Klasifikasi: ")
         st.success(f"{labels[predicted_class[0]]}")
 
+        # Make a prediction
+        prediction = model.predict(img_array)
+        predicted_class = np.argmax(prediction, axis=1)
+        probabilities = prediction[0]
+
         st.write("Probabilitas:")
         for i in range(len(labels)):
             st.write(f"{labels[i]}: {probabilities[i]*100:.2f}%")

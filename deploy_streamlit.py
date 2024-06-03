@@ -44,3 +44,8 @@ if uploaded_file is not None:
         # Display the prediction result
         st.write("Hasil Klasifikasi: ")
         st.success(f"{labels[predicted_class[0]]}")
+
+        # Display probabilities
+        st.write("Probabilitas untuk masing-masing kelas: ")
+        for i, prob in enumerate(prediction[0]):
+            st.write(f"{labels[i]}: {prob:.4f}")

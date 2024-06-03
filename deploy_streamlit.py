@@ -45,6 +45,10 @@ if uploaded_file is not None:
         st.write("Hasil Klasifikasi: ")
         st.success(f"{labels[predicted_class[0]]}")
 
+        probabilitas = model_nn_statistik.predict_proba
+        probabilitas_bulat = [round(p, 2) for p in probabilitas[0]]
+        st.write("Probabilitas: ", dict(zip(labels, probabilitas_bulat)))
+
         # Display probabilities
         st.write("Probabilitas untuk masing-masing kelas: ")
         for i, prob in enumerate(prediction[0]):
